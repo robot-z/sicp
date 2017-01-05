@@ -1,9 +1,7 @@
 (define (fast-expt b n)
-        (fast-expt-i 1 b n))
+        (fast-expt-i b n 1))
 
-(define (square x) (* x x))
-
-(define (fast-expt-i a b n)
-        (cond ((= n 0) a)
-              ((= (% n 2) 0) (fast-expt-i (* a (square b)) b (- n 2)))
-              (else (fast-expt-i (* a b) b (- n 1)))))
+(define (fast-expt-i b n tmp)
+        (cond ((= n 0) b)
+              ((= (remainder n 2) 0) (fast-expt-i (square b) (/ n 2) tmp))
+              (else (fast-expt-i (* b tmp) (- n 1) b))))
