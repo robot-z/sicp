@@ -1,3 +1,6 @@
+(define (next-count n)
+        (if (= n 2) 3 (+ n 2)))
+
 (define (smallest-divisor-i n count)
         (cond ((> (square count) n) n)
               ((= (remainder n count) 0) count)
