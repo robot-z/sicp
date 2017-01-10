@@ -30,14 +30,8 @@
                 (+ n 1)
                 (+ n 2)))
 
-(define (search-for-primes start-n end-n number)
-        (if (and (< start-n end-n) (> number 0))
-                (begin
-                (search-for-primes (next-odd start-n) end-n number)
-                (if (= (timed-prime-test start-n) #t)
-                    (begin
-                    (+ number 1)
-                    #t)
-                    #f)
-                #t)
-                #f))
+(define (search-for-primes start end number)
+        (if (and (< start end) (> number 0))
+                (if (timed-prime-test start)
+                    (search-for-primes (next-odd start) end (- number 1))
+                    (search-for-primes (next-odd start) end number))))
