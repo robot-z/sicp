@@ -9,6 +9,5 @@
                          (try-it f next))))
        (try-it f first-guest))
 
-
 (fixed-point (lambda (x) (+ 1 (/ 1 x))) (exact->inexact 1))
                 
