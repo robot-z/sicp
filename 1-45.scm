@@ -31,7 +31,6 @@
 
 (define (fixed-point f first-guest)  
         (define (try-it f guest)
-                (display guest)
                 (newline)
                 (let ((next (f guest)))
                      (if (check-close next guest)
@@ -40,4 +39,5 @@
        (try-it f first-guest))
 
 (define (rt x n) 
-        (fixed-point (repeated-average-damp (lambda (y) (/ x (fast-expt y (- n 1)))) (log2 n)) 1))
+        (fixed-point (repeated-average-damp (lambda (y) (/ x (fast-expt y (- n 1)))) (floor (log2 n))) 1.0))
+
