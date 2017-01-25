@@ -21,8 +21,8 @@
                     (/ (+ (y-point pointA) (y-point pointB)) 2)))
 
 (define (midpoint-segment segment)
-        (midpoint ((start-segment segment) 
-                   (end-segment segment))))
+        (midpoint (start-segment segment) 
+                   (end-segment segment)))
 
 (define (print-point p)
         (newline)
